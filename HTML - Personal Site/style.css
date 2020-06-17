@@ -1,0 +1,26 @@
+body {
+    background-color: powderblue;
+}
+
+hr {
+    border-style: none;
+    border-top-style: dotted;
+    width: 8%;
+    border-color: #cbf1f5;
+    border-width: 5px;
+}
+
+h1 {
+    color: #0a97b0;
+    font-family: serif;
+}
+
+h3 {
+    color: #30396;
+    font-family: monospace;
+}
+
+h4 {
+    color: #30396;
+    font-family: monospace;
+}
