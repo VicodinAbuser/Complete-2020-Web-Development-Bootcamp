@@ -3,39 +3,140 @@ body {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
+
+h1 {
+    margin: 50px auto 0 auto;
+    font-family: 'Sacramento', cursive;
+    font-size: 5.5em;
+    color: #66BFBF;
+}
+
+h2 {
+    margin-top: 0;
+    font-family: 'Merriweather', serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+    color: #66BFBF;
+    line-height: 2;
+}
+
+h3 {
+    color: #11999E;
+}
+
+p {
+    margin-top: 0;
+    font-family: 'Merriweather', serif;
+    color: #40514E;
+    font-weight: bold;
+}
+
+hr {
+    border-style: dotted;
+    border-width: 8px 0 0 0;
+    width: 5%;
+    border-color: #87dfd6;
+}
+
+/*button {
+    width: 150px;
+    height: 50px;
+    background-color:  #11999E;
+}*/
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+button {
+    margin-top: 40px;
+    background-color: #01a9b4;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-family: Arial;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 10px 20px;
+    text-shadow: 0 1px 40px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    border-width: 0;
+}
+
+
+
+.profile {
+    width: 40%;
+    margin: 80px auto;
+}
+.skills {
+    margin: 70px auto;
+}
+
+.contact-me {
+    margin: 90px auto;
+    width: 40%;
+}
+.data-science-img {
+    width: 25%;
+    float: left;
+    margin-right: 30px;
+}
+
+.python-img {
+    width: 25%;
+    float: right;
+    margin-left: 30px;
+}
+
+.cricket-img {
+    width: 25%;
+    float: left;
+    margin-right: 30px;
+}
 .top-container {
-    background-color: #a6dcef;
+    background-color: #ddf3f5;
     padding-top: 80px;
     position: relative;
 }
-.middle-container {
-    height: 200px;
-    width: 200px;
-    background-color: red;
 
-}
+.middle-container {}
+
 .bottom-container {
-    height: 200px;
-    width: 200px;
-    background-color: blue;
+    background-color: #66BFBF;
+    height: 120px;
+    padding-top: 50px;
+}
 
-}
 .top-cloud {
-    position:absolute;
-    right:430px;
-    top:20px;
+    position: absolute;
+    right: 430px;
+    top: 20px;
 }
+
 .bottom-cloud {
     position: absolute;
     left: 430px;
 }
-h1 {
-    margin-top: 0;
-    font-family: 'Sacramento', cursive;
-    font-size: 50px
-}
-p {
-    margin-top: 0;
-    font-family: 'Merriweather', serif;
 
+
+.skill-row {
+    width: 50%;
+    margin: 100px auto;
+    text-align: left;
+    line-height: 2;
+}
+
+.footer-link {
+    color: #11999E;
+    margin: auto 30px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.copyright {
+    margin:30px auto;
 }
