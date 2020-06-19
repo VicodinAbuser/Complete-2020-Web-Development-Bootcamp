@@ -29,6 +29,7 @@ p {
     font-family: 'Merriweather', serif;
     color: #40514E;
     font-weight: bold;
+    line-height: 2;
 }
 
 hr {
@@ -49,12 +50,16 @@ a {
     color: white;
 }
 
+a:hover {
+    color: #120136;
+}
+
 button {
     margin-top: 40px;
     background-color: #01a9b4;
     border-radius: 10px;
     color: #FFFFFF;
-    font-family: Arial;
+    font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     font-weight: 400;
     padding: 10px 20px;
@@ -66,6 +71,22 @@ button {
     border-width: 0;
 }
 
+button:hover {
+    margin-top: 40px;
+    background-color: #035aa6;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 10px 20px;
+    text-shadow: 0 1px 40px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    border-width: 0;
+}
 
 
 .profile {
@@ -113,13 +134,13 @@ button {
 
 .top-cloud {
     position: absolute;
-    right: 430px;
+    right: 280px;
     top: 20px;
 }
 
 .bottom-cloud {
     position: absolute;
-    left: 430px;
+    left: 280px;
 }
 
 
@@ -127,7 +148,6 @@ button {
     width: 50%;
     margin: 100px auto;
     text-align: left;
-    line-height: 2;
 }
 
 .footer-link {
