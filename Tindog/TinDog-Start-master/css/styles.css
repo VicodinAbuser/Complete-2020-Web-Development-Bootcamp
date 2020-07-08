@@ -148,6 +148,32 @@ h2 {
 }
 
 
+/* Call To Action Section */
+
+#cta {
+    background-color: #ff4c68;
+    padding: 7% 15%;
+    text-align: center;
+}
+
+.cta-heading {
+    font-family: 'Montserrat';
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.5;
+    color: white;
+}
+
+#footer {
+    text-align: center;
+    padding: 7% 15%;
+}
+
+.footer-link {
+    margin: 1%;
+}
+
+
 @media (max-width: 1028px ) {
     #title {
         text-align: center;
