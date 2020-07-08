@@ -17,6 +17,12 @@ h1 {
     line-height: 1.5;
 }
 
+h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
 /* Navigation Bar */
 
 .navbar {
@@ -66,7 +72,7 @@ h1 {
 
 .feature {
     text-align: center;
-
+    padding: 0 5%;
 }
 
 .feature-icon {
@@ -79,7 +85,7 @@ h1 {
 }
 
 .features-heading {
-    margin: 1rem 0;
+    margin: 1rem 0 0.3rem;
     font-family: 'Montserrat';
     font-weight: bold;
     font-size: 1.5rem;
@@ -90,5 +96,35 @@ h1 {
 }
 
 .container {
-    padding: 6%;
+    padding: 7% 2%;
+}
+
+
+/* Testimonial Section */
+
+#testimonials {
+    text-align: center;
+    background-color: #ef8172;
+    color: #fff;
+}
+
+.carousel-item {
+    padding: 7% 15%;
+}
+
+.testimonial-image {
+    width: 10%;
+    border-radius: 100%;
+    margin: 20px;
+}
+
+#press {
+    background-color: #ef8172;
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+.press-image {
+    width: 15%;
+    margin: 20px 20px 50px;
 }
