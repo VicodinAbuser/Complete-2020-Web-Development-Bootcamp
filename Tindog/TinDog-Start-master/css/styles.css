@@ -7,7 +7,7 @@ body {
     /* height: 500px;
     z-index: 1; */
     color: white;
-
+    /* height: 600px; */
 }
 
 
@@ -57,18 +57,25 @@ h2 {
 #main-image {
     width: 60%;
     transform:rotate(25deg);
-    /* height: 500px;
-    z-index: 0; */
+    position: absolute;
+    /* z-index: -1; */
+    right: 28%;
 }
 
 
 
 .container-fluid {
-    padding: 3% 15%;
+    padding: 3% 15% 7%;
 }
 
 
 /* Features Section */
+
+#features {
+    background-color: white;
+    position: relative;
+    /* z-index: 1; */
+}
 
 .feature {
     text-align: center;
@@ -127,4 +134,28 @@ h2 {
 .press-image {
     width: 15%;
     margin: 20px 20px 50px;
+}
+
+
+/* Pricing Section */
+
+#pricing {
+    padding: 100px;
+}
+
+.pricing-column {
+    padding: 3% 2%;
+}
+
+
+@media (max-width: 1028px ) {
+    #title {
+        text-align: center;
+    }
+
+    #main-image {
+        position: static;
+        transform: rotate(0);
+
+    }
 }
