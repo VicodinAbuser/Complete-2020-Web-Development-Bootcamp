@@ -1,6 +1,7 @@
 
 let drums = document.querySelectorAll('.drum');
 
+//Click
 
 for (let i = 0; i < drums.length; i++) {
     drums[i].addEventListener('click', function() {
@@ -9,15 +10,17 @@ for (let i = 0; i < drums.length; i++) {
 
         whichKey(buttonText);
 
+        buttonAnimation(buttonText);
      });
 
 }
 
-
+//KeyBoard Press
 document.addEventListener('keydown', function(event) {
 
     let buttonText = event.key;
     whichKey(buttonText);
+    buttonAnimation(buttonText);
 
     })
 
@@ -60,6 +63,15 @@ function whichKey(character) {
             break;
 
         default:
-            console.log(innerHTML);
+            console.log(character);
     }
+}
+
+
+function buttonAnimation(key) {
+    document.querySelector('.' + key).classList.add('pressed');
+
+    setTimeout(function() {
+        document.querySelector('.' + key).classList.remove('pressed');
+    }, 0.5);
 }
