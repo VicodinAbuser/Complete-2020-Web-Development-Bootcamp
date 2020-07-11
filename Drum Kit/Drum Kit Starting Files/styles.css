@@ -1,19 +1,20 @@
 body {
   text-align: center;
-  background-color: #283149;
+  background-color: #6a197d; /*#283149;*/
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 7rem;
   color: #DBEDF3;
   font-family: "Arvo", cursive;
-  text-shadow: 3px 0 #DA0463;
+  text-shadow: 6px 0 #111d5e;/*#DA0463;*/
 
 }
 
 footer {
   color: #DBEDF3;
   font-family: sans-serif;
+  font-size: 0.7rem;
 }
 
 .w {
@@ -51,7 +52,7 @@ footer {
 }
 
 .set {
-  margin: 10% auto;
+  margin: 7.5% auto 10%;
 }
 
 .game-over {
@@ -70,14 +71,14 @@ footer {
 
 .drum {
   outline: none;
-  border: 10px solid #404B69;
+  border: 7px solid #111d5e;/*#404B69;*/
   font-size: 5rem;
   font-family: 'Arvo', cursive;
   line-height: 2;
   font-weight: 900;
-  color: #DA0463;
+  color: #ff5200;/*#DA0463;*/
   text-shadow: 3px 0 #DBEDF3;
-  border-radius: 15px;
+  border-radius: 25px;
   display: inline-block;
   width: 150px;
   height: 150px;
