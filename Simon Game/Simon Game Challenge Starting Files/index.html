@@ -39,7 +39,18 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="game.js" charset="utf-8"></script>
+    <!-- <script src="game.js" charset="utf-8"></script> -->
+    <script>
+    if (screen && screen.width > 900) {
+        document.write('<script type="text/javascript" src="game.js"><\/script>');
+        }
+    </script>
+
+    <script>
+    if (screen && screen.width < 900) {
+        document.write('<script type="text/javascript" src="mobile.js"><\/script>');
+        }
+    </script>
 </body>
 
 </html>
