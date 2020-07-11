@@ -18,3 +18,11 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 - Tindog 
    
    https://app.netlify.com/sites/vicodin-abuser-tindog
+
+- Dice Challenge 
+   
+   https://app.netlify.com/sites/vicodin-abuser-roll-dice
+   
+- Drum Kit
+   
+   https://app.netlify.com/sites/vicodin-abuser-drum-kit
