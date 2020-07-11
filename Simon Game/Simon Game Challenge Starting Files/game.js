@@ -11,19 +11,19 @@ let level = 0;
 if (window.matchMedia("(max-width: 700px)").matches) {
   $("h1").text("Press anywhere to Start!");
   $("body").on("tap", function() {
-    if (started === false) {
+    if (gameStarted === false) {
       nextSequence();
       $("h1").text("Level" + level);
-      started = true;
+      gameStarted = true;
     }
   })
 } else {
   $("h1").text("Press any key to start!");
   $("body").on("keypress", function() {
-    if (started === false) {
+    if (gameStarted === false) {
         nextSequence();
       $("h1").text("Level" + level);
-      started = true;
+      gameStarted = true;
     }
   });
 }
