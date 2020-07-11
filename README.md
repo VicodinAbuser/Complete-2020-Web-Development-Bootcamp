@@ -27,3 +27,7 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 - Drum Kit
    
    https://vicodin-abuser-drum-kit.netlify.app
+
+- Simon Game
+   
+   https://vicodin-abuser-simon-game.netlify.app/
