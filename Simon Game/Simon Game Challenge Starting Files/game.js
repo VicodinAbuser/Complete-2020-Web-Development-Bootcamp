@@ -7,13 +7,27 @@ let level = 0;
 
 
 //Event Listener for a keypress. When a key is pressed, the heading is changed and the nextSequence function is called.
-$(document).keypress(function() {
-    if (!gameStarted) {
-        $('h1').text('Level ' +level);
-        nextSequence();
-        gameStarted = true;
+
+if (window.matchMedia("(max-width: 700px)").matches) {
+  $("h1").text("Press anywhere to Start!");
+  $("body").on("tap", function() {
+    if (started === false) {
+      nextSequence();
+      $("h1").text("Level" + level);
+      started = true;
     }
-});
+  })
+} else {
+  $("h1").text("Press any key to start!");
+  $("body").on("keypress", function() {
+    if (started === false) {
+        nextSequence();
+      $("h1").text("Level" + level);
+      started = true;
+    }
+  });
+}
+
 
 
 //Event Listener for a mouse click. The id of the button which is clicked is extracted and pushed to the userClickedPattern array.
