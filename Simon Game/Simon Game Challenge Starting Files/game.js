@@ -8,31 +8,39 @@ let level = 0;
 
 //Event Listener for a keypress. When a key is pressed, the heading is changed and the nextSequence function is called.
 
-if (window.matchMedia("(max-width: 700px)").matches) {
-  $("h1").text("Press anywhere to Start!");
-  $("body").on("tap", function() {
-    if (gameStarted === false) {
-      nextSequence();
-      $("h1").text("Level" + level);
-      gameStarted = true;
-    }
-  })
-} else {
-  $("h1").text("Press any key to start!");
-  $("body").on("keypress", function() {
+// if (window.matchMedia("(max-width: 700px)").matches) {
+//
+//     $("h1").text("Press anywhere to Start!");
+//     $("body").on("tap", function() {
+//         if (gameStarted === false) {
+//             nextSequence();
+//             $("h1").text("Level " + level);
+//             gameStarted = true;
+//         }
+//     });
+// } else {
+//     $("h1").text("Press any key to start!");
+//     $("body").on("keypress", function() {
+//         if (gameStarted === false) {
+//             nextSequence();
+//             $("h1").text("Level " + level);
+//             gameStarted = true;
+//         }
+//     });
+// }
+
+$('button').click(function() {
     if (gameStarted === false) {
         nextSequence();
-      $("h1").text("Level" + level);
-      gameStarted = true;
+        $("h1").text("Level " + level);
+        gameStarted = true;
     }
-  });
-}
-
+});
 
 
 //Event Listener for a mouse click. The id of the button which is clicked is extracted and pushed to the userClickedPattern array.
 //Corresponding sound is played and animation is performed. Finally checkAnswer is called to see if the correct button is clicked.
-$('.btn').click(function() {
+$('.custom-btn').click(function() {
 
     let userChosenColour = $(this).attr('id');
     userClickedPattern.push(userChosenColour);
