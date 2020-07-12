@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>Simon</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -16,29 +18,40 @@
 </head>
 
 <body>
-    <h1 id="level-title">Press the button to Start</h1>
+    <div class="container">
+        <div class="row">
+            <h1 id="level-title">Press the button to Start</h1>
+        </div>
+    </div>
     <button class='btn btn-danger btn-lg' type="button" name="button">Start</button>
-    <div class="custom-container">
-        <div class="custom-row">
-
+    <div class="container">
+        <div class="row">
+        <div class="col-6">
             <div type="button" id="green" class="custom-btn green">
 
             </div>
+        </div>
 
+        <div class="col-6">
             <div type="button" id="red" class="custom-btn red">
 
             </div>
         </div>
 
-        <div class="custom-row">
-
-            <div type="button" id="yellow" class="custom-btn yellow">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+        <div class="col-6">
+            <div type="button" id="yellow" class=" col-xs-6 custom-btn yellow">
 
             </div>
-            <div type="button" id="blue" class="custom-btn blue">
+        </div>
+        <div class="col-6">
+            <div type="button" id="blue" class=" col-xs-6 custom-btn blue">
 
             </div>
-
+        </div>
         </div>
 
     </div>
