@@ -15,4 +15,13 @@ app.post('/', (req, res) => {
 
 });
 
+app.get('/bmicalculator', (req, res) => { res.sendFile(__dirname + '/bmicalculator.html')});
+
+app.post('/bmicalculator', (req, res) => {
+    let weight = Number(req.body.weight);
+    let height = Number(req.body.height);
+    let bmi = weight/Math.pow(height, 2);
+    res.send("Your BMI is : <strong>" + bmi + '</strong>');
+})
+
 app.listen('3000', () => { console.log("Server started on port 3000") } );
