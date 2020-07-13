@@ -18,9 +18,15 @@ app.post('/', (req, res) => {
 app.get('/bmicalculator', (req, res) => { res.sendFile(__dirname + '/bmicalculator.html')});
 
 app.post('/bmicalculator', (req, res) => {
+    function roundToXDigits(value, digits) {
+        value = value * Math.pow(10, digits);
+        value = Math.round(value);
+        value = value / Math.pow(10, digits);
+        return value;
+    }
     let weight = Number(req.body.weight);
     let height = Number(req.body.height);
-    let bmi = weight/Math.pow(height, 2);
+    let bmi = roundToXDigits(weight/Math.pow(height, 2),2);
     res.send("Your BMI is : <strong>" + bmi + '</strong>');
 })
 
