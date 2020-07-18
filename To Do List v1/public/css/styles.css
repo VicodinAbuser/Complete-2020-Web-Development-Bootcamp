@@ -1,20 +1,21 @@
 html {
   background-color: #E4E9FD;
-  background-image: -webkit-linear-gradient(65deg, /*#A683E3*/#1dd3bd 50%, #E4E9FD 50%);
+  background-image: -webkit-linear-gradient(65deg, /*#A683E3#1dd3bd*/#1dd3bd 50%, /*#E4E9FD*/#07031a 50%);
   min-height: 1000px;
   /* font-family: 'Fondamento', cursive; */
   font-family: sans-serif;
 }
 
 h1 {
-  color: #fff;
+  color: #6a197d;
   padding: 10px;
 }
 
 .box {
   max-width: 400px;
   margin: 50px auto;
-  background: white;
+  background: #6a197d;
+  color: white;
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
@@ -49,7 +50,7 @@ p {
   padding: 20px;
   font-size: 20px;
   font-weight: 200;
-  color: #000839;
+  color: white/*#000839*/;
 ;
 }
 
@@ -76,6 +77,7 @@ input[type="text"] {
   top: 10px;
   border: none;
   background: transparent;
+  color: white;
   font-size: 20px;
   font-weight: 200;
   width: 313px;

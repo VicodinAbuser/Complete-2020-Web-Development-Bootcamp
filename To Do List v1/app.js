@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const date = require(__dirname + '/getdate.js');
 const mongoose = require('mongoose');
+const _ = require('lodash');
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-mongoose.connect('mongodb://localhost:27017/todolistDB', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost:27017/todolistDB', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 
 const itemsSchema = new mongoose.Schema({
     name: String
@@ -88,23 +89,37 @@ app.post('/', (req, res) => {
 app.post('/delete', (req, res) => {
     console.log(req.body.checkbox);
 
+    const listName = req.body.listName;
     const checkedItemId = req.body.checkbox;
-    Item.deleteOne({_id: checkedItemId}, (err) => {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log("Successfullydeleted the entry from the database");
-        }
-    });
 
-    res.redirect('/');
-})
+    if (listName === date.getDate()) {
+        Item.deleteOne({_id: checkedItemId}, (err) => {
+            if(err) {
+                console.log(err);
+            } else {
+                console.log("Successfully deleted the entry from the database");
+                res.redirect('/');
+            }
+        });
+
+    } else {
+
+        List.findOneAndUpdate({name: listName}, {$pull: {items: {_id: checkedItemId}}}, (err, resultList)=> {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(`Entry Successfully deleted from ${listName} list`);
+                res.redirect(`/${listName}`);
+            }
+        });
+    }
+});
 
 
 app.get('/:custom', (req, res) => {
     console.log(req.params.custom);
 
-    const customeListName = req.params.custom;
+    const customeListName = _.capitalize(req.params.custom);
 
     List.findOne({name: customeListName}, (err, result) => {
         if (err) {
@@ -131,16 +146,28 @@ app.get('/:custom', (req, res) => {
 })
 
 
-app.get('/work', (req, res) => {
-    res.render('list', {listTitle: 'Work List', newListItem: workItems, action: '/work'});
-});
+// app.get('/work', (req, res) => {
+//     res.render('list', {listTitle: 'Work List', newListItem: workItems, action: '/work'});
+// });
 
 
-app.post('/work', (req, res) => {
-    let item = req.body.newItem;
-    workItems.push(item);
+app.post('/:custom', (req, res) => {
+    const customListNamePost = req.params.custom;
 
-    res.redirect('/work');
+    const item = req.body.newItem;
+
+    const newItem = new Item({
+        name: item
+    });
+
+    List.findOne({name: customListNamePost}, (err, resultList) => {
+        resultList.items.push(newItem);
+        resultList.save();
+    });
+
+    res.redirect(`/${customListNamePost}`);
+    // workItems.push(item);
+    // res.redirect('/work');
 })
 
 
