@@ -6,14 +6,11 @@ const _ = require('lodash');
 
 const app = express();
 
-// let items = ['By Food', 'Cook the food', 'Eat the food'];
-// let workItems = [];
-
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-mongoose.connect('mongodb+srv://admin-naman:Qwerty1234@cluster0.zwkuk.mongodb.net/todolistDB', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connect('mongodb+srv://admin-naman:<password>@cluster0.zwkuk.mongodb.net/todolistDB', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 
 const itemsSchema = new mongoose.Schema({
     name: String
@@ -64,7 +61,6 @@ app.get('/', (req, res) => {
             } else {
                 res.render('list', {listTitle: date.getDate(), newListItem: result, action: '/'});
             }
-            //console.log(result);
         }
     });
 });
@@ -79,7 +75,6 @@ app.post('/', (req, res) => {
     });
 
     newItem.save();
-    // items.push(item);
 
     res.redirect('/');
     console.log(req.body);
@@ -138,17 +133,7 @@ app.get('/:custom', (req, res) => {
             }
         }
     });
-
-
-
-
-
 })
-
-
-// app.get('/work', (req, res) => {
-//     res.render('list', {listTitle: 'Work List', newListItem: workItems, action: '/work'});
-// });
 
 
 app.post('/:custom', (req, res) => {
@@ -166,8 +151,6 @@ app.post('/:custom', (req, res) => {
     });
 
     res.redirect(`/${customListNamePost}`);
-    // workItems.push(item);
-    // res.redirect('/work');
 })
 
 
