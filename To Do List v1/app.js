@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-mongoose.connect('mongodb://localhost:27017/todolistDB', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connect('mongodb+srv://admin-naman:Qwerty1234@cluster0.zwkuk.mongodb.net/todolistDB', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 
 const itemsSchema = new mongoose.Schema({
     name: String
@@ -176,7 +176,11 @@ app.get('/about', (req, res) => {
 })
 
 
+let port = process.env.PORT;
+if(port == null || port == '') {
+    port = 3000;
+}
 
-app.listen('3000', () => {
-    console.log("Server up and running on port 3000");
+app.listen(port, () => {
+    console.log("Server up and running.");
 });

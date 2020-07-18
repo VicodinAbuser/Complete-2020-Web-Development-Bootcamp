@@ -1,7 +1,8 @@
 html {
   background-color: #E4E9FD;
   background-image: -webkit-linear-gradient(65deg, /*#A683E3#1dd3bd*/#1dd3bd 50%, /*#E4E9FD*/#07031a 50%);
-  min-height: 1000px;
+  background-size: cover;
+  min-height: 800px;
   /* font-family: 'Fondamento', cursive; */
   font-family: sans-serif;
 }
@@ -29,7 +30,7 @@ h1 {
   min-height: 70px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #F1F1F1;
+  border-bottom: 1px solid black/*#F1F1F1*/;
 }
 
 .item:last-child {
@@ -94,7 +95,46 @@ input[type="text"]:focus {
 }
 
 footer {
+  /* position: absolute;
+  bottom: 10px;
+  left: 40%;
+  right: 40%; */
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+
+@media (max-width: 900px) {
+    html {
+        min-height: 800px;
+    }
+
+    .box {
+        text-align: center;
+    }
+
+    .item {
+        min-height: 40px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+      font-size: 17px;
+    }
+
+    button {
+      min-height: 40px;
+      width: 40px;
+      font-size: 30px;
+      margin-right: 15px;
+    }
+
+    /* footer {
+        left: 10%;
+        right: 10%
+    } */
 }
