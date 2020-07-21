@@ -5,12 +5,12 @@
 
 <% postsArray.forEach( (post) => { %>
 
-    <h1><%= post.title %></h1>
+    <h1><a class='post-heading' href='/posts/<%=post._id%>'><%= post.title %></a></h1>
 
     <% if (post.post.length > 100) { %>
 
         <p><%= post.post.substring(0,100) + '...' %>
-        <a href='/posts/<%=post._id%>'' >Read more</a>
+        <a href='/posts/<%=post._id%>'>Read more</a>
         </p>
 
     <% } else { %>
@@ -20,5 +20,7 @@
     <% } %>
 
 <% }); %>
+
+
 
 <%- include('partials/footer') -%>
