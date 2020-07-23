@@ -19,7 +19,6 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 const app = express();
 
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
@@ -40,15 +39,25 @@ mongoose.set('useCreateIndex', true);
 const postSchema = new mongoose.Schema({
     title: String,
     post: String,
-    public: Boolean
+    public: Boolean,
+    account: String,
+    email: String,
+    authorId: String,
+    // liked: Boolean,
+    // likes: Number,
+    // comments: [String],
+    // numberOfComments: Number
 });
 
 const Post = mongoose.model('Post', postSchema);
 
 
 const usersSchema = new mongoose.Schema({
+    accountName: String,
     email: String,
     password: String,
+    // googleId: String,
+    // facebookId: String,
     posts: [postSchema]
 });
 
@@ -69,12 +78,57 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+
+// passport.use(new GoogleStrategy({
+//     clientID: process.env.CLIENT_ID,
+//     clientSecret: process.env.CLIENT_SECRET,
+//     callbackURL: "http://localhost:3000/auth/google/",
+//     // userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+//   },
+//   function(accessToken, refreshToken, profile, cb) {
+//     console.log(profile);
+//     User.findOrCreate({ googleId: profile.id }, function (err, user) {
+//       return cb(err, user);
+//     });
+//   }
+// ));
+//
+// passport.use(new FacebookStrategy({
+//     clientID: process.env.FB_APP_ID,
+//     clientSecret: process.env.FB_APP_SECRET,
+//     callbackURL: "http://localhost:3000/auth/facebook/"
+//   },
+//   function(accessToken, refreshToken, profile, cb) {
+//     console.log(profile);
+//     User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+//       return cb(err, user);
+//     });
+//   }
+// ));
+
+
+
 app.get('/', (req, res) => {
     Post.find({public: true}, (err, posts) => {
-        console.log(posts);
-        res.render('home', {content: homeStartingContent, postsArray: posts, authenticated: req.isAuthenticated()});
+            res.render('home', {postsArray: posts, authenticated: req.isAuthenticated()});
     })
 });
+
+// app.get('/auth/google',
+//     passport.authenticate('google', { scope: ['profile'] })
+// );
+//
+// app.get('/auth/google/', passport.authenticate('google', {failureRedirect: '/login'}), (req, res) => {
+//     res.redirect('/');
+// });
+//
+// app.get('/auth/facebook',
+//   passport.authenticate('facebook'));
+//
+// app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), (req, res) => {
+//     // Successful authentication, redirect home.
+//     res.redirect('/');
+//   });
 
 app.get('/login', (req, res) => {
     res.render('login', {authenticated: req.isAuthenticated()});
@@ -98,10 +152,45 @@ app.get('/profile', (req, res) => {
             console.log(err);
             res.send('Please log in to see your profile.');
         } else {
-            res.render('profile', { postsArray: foundUser.posts, authenticated: req.isAuthenticated() });
+            console.log(foundUser.posts.length);
+            res.render('profile', { postsArray: foundUser.posts, userName: foundUser.accountName, authenticated: req.isAuthenticated(), visitor: false });
         }
     })
-})
+});
+
+app.get('/profile/:profileId', (req, res) => {
+    const profileId = req.params.profileId;
+    console.log(profileId);
+    User.findById(profileId, (err, foundUser) => {
+        if (err) {
+            console.log(err);
+            res.send('User not found');
+        } else {
+            if(req.isAuthenticated()) {
+                User.findById(req.user.id, (err, foundMyself) => {
+                    if(err) {
+                        console.log(err);
+                        res.send("Please login to see this profile");
+                    } else {
+                        if(foundMyself) {
+                            if (JSON.stringify(foundMyself._id) === JSON.stringify(foundUser._id)) {
+
+                                res.render('profile', { postsArray: foundUser.posts, userName: foundUser.accountName, authenticated: req.isAuthenticated(), visitor: false });
+                            } else {
+                                res.render('profile', { postsArray: foundUser.posts, userName: foundUser.accountName, authenticated: req.isAuthenticated(), visitor: true });
+                            }
+                        } else {
+                            res.send("Please login to see this profile");
+                        }
+                    }
+                });
+            } else {
+                res.render('profile', { postsArray: foundUser.posts, userName: foundUser.accountName, authenticated: req.isAuthenticated(), visitor: true });
+            }
+
+        }
+    });
+});
 
 app.get('/compose', (req, res) => {
     res.render('compose', {authenticated: req.isAuthenticated()});
@@ -109,10 +198,128 @@ app.get('/compose', (req, res) => {
 
 app.get('/posts/:postId', (req, res) => {
     const requestedPostId = req.params.postId;
-    Post.findOne({_id: requestedPostId}, (err, foundPost) => {
-        res.render('post', {title: foundPost.title, content: foundPost.post, authenticated: req.isAuthenticated()});
+    Post.findById( requestedPostId, (err, foundPost) => {
+        if(err) {
+            console.log(err);
+            res.send("There was an error retrieving the post.");
+        } else {
+            if(foundPost) {
+                if (req.isAuthenticated()) {
+                    User.findById(req.user.id, (err, foundMyself) => {
+                        if(err) {
+                            console.log(err);
+                            res.send("Please login to see this post");
+                        } else {
+                            if(foundMyself) {
+                                console.log(foundPost.post);
+                                if (JSON.stringify(foundMyself._id) === JSON.stringify(foundPost.authorId)) {
+                                    res.render('post', {id: foundPost._id, title: foundPost.title, author: foundPost.account, content: foundPost.post, visitor: false, authenticated: req.isAuthenticated()});
+                                } else {
+                                    res.render('post', {id: foundPost._id, title: foundPost.title, author: foundPost.account, content: foundPost.post, visitor: true, authenticated: req.isAuthenticated()});
+                                }
+                            } else {
+                                res.send("Please login to see this post");
+                            }
+                        }
+                    });
+                } else {
+                    res.render('post', {id: foundPost._id, title: foundPost.title, author: foundPost.account, content: foundPost.post, visitor: true, authenticated: req.isAuthenticated()});
+                }
+
+            }
+        }
     });
 });
+
+app.post('/delete', (req, res) => {
+    const postId = req.body.postId;
+
+    Post.findById(postId, (err, foundPost) => {
+        if(err) {
+            console.log(err);
+            res.send('Post not found.');
+        } else {
+            if(foundPost) {
+                const userId = foundPost.authorId;
+
+                User.findById(userId, (err, foundUser) => {
+                    if(err) {
+                        console.log(err);
+                        res.send("There was an error. Please try again.");
+                    } else {
+                        if (foundUser) {
+                            for(let i = 0; i < foundUser.posts.length; i++) {
+
+                                if (JSON.stringify(foundUser.posts[i]['_id']) === JSON.stringify(postId)) {
+                                    console.log(foundUser.posts.length);
+                                    foundUser.posts.splice(i,1);
+                                    foundUser.save();
+                                    console.log(foundUser.posts.length);
+                                    break;
+                                }
+                            }
+                        } else {
+                            res.send("User not found");
+                        }
+                    }
+                });
+
+                Post.findByIdAndDelete(postId, (err, deletedPost) => {
+                    if(err) {
+                        console.log(err);
+                        res.send("There was an error. Please try again.");
+                    } else {
+                        if(deletedPost) {
+                            console.log(deletedPost);
+                            res.redirect('/profile');
+                        }
+                    }
+                });
+            } else {
+                res.send("Post not found");
+            }
+        }
+    });
+});
+
+// app.post('/like', (req, res) => {
+//     const toLike = req.body.liked;
+//     const postId = req.body.postId;
+//
+//     if(toLike == "true") {
+//         Post.findById(postId, (err, foundPost) => {
+//             if(err) {
+//                 console.log(err);
+//                 res.send('There was an error. Please try again');
+//             } else {
+//                 if(foundPost) {
+//                     foundPost.liked = true;
+//                     foundPost.likes++;
+//
+//                     res.redirect('/');
+//                 } else {
+//                     res.send("Could not find post. Please try again.");
+//                 }
+//             }
+//         });
+//     } else {
+//         Post.findById(postId, (err, foundPost) => {
+//             if(err) {
+//                 console.log(err);
+//                 res.send('There was an error. Please try again');
+//             } else {
+//                 if(foundPost) {
+//                     foundPost.liked = true;
+//                     foundPost.likes++;
+//
+//                     res.redirect('/');
+//                 } else {
+//                     res.send("Could not find post. Please try again.");
+//                 }
+//             }
+//         });
+//     }
+// })
 
 app.get('/logout', (req, res) => {
     req.logout();
@@ -120,7 +327,7 @@ app.get('/logout', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-    User.register({username: req.body.username}, req.body.password, (err, user) => {
+    User.register({username: req.body.username, accountName: req.body.accountName}, req.body.password, (err, user) => {
         if(err) {
             console.log(err);
             res.redirect('/register');
@@ -153,22 +360,27 @@ app.post('/login', (req, res) => {
 
 
 app.post('/compose', (req, res) => {
-    const post = new Post ({
-        title: req.body.title,
-        post: req.body.post,
-        public: req.body.public
-    });
-
-    if(post.public) {
-        post.save();
-    }
-
     User.findById(req.user.id, (err, foundUser)=> {
         if(err) {
             console.log(err);
             res.send('Please log in to post.');
         } else {
+            const post = new Post ({
+                title: req.body.title,
+                post: req.body.post,
+                public: req.body.public,
+                account: foundUser.accountName,
+                email: foundUser.username,
+                authorId: req.user.id
+            });
+
+            // if(post.public) {
+            //     post.save();
+            // }
+            post.save();
+
             foundUser.posts.push(post);
+
             foundUser.save(() => {
                 res.redirect('/');
                 console.log(foundUser.posts);

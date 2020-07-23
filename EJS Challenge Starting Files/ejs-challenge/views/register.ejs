@@ -10,6 +10,10 @@
           <!-- Makes POST request to /register route -->
           <form action="/register" method="POST">
             <div class="form-group">
+                <label for="accountName">Username</label>
+                <input type="text" class="form-control" name="accountName">
+            </div>
+            <div class="form-group">
               <label for="email">Email</label>
               <input type="email" class="form-control" name="username">
             </div>
@@ -24,7 +28,7 @@
       </div>
     </div>
 
-    <div class="col-sm-4">
+    <!-- <div class="col-sm-4">
       <div class="card social-block">
         <div class="card-body">
           <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
@@ -42,7 +46,7 @@
           </a>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </div>

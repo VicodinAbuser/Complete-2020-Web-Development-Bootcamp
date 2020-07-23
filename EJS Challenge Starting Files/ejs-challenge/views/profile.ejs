@@ -1,13 +1,13 @@
 <%- include('partials/header') -%>
 
-<h1>My Posts</h1>
-
+<h1><%= userName %></h1>
 <div class="row">
     <div class="col-xs-12">
-        <h2>Public Blogs</h2>
+        <h2 class='post-category'>Public Blogs</h2>
+        <hr>
         <% postsArray.forEach( (post) => { %>
         <% if(post.public) { %>
-            <h1><a class='post-heading' href='/posts/<%=post._id%>'><%= post.title %></a></h1>
+            <h3><a class='post-heading' href='/posts/<%=post._id%>'><%= post.title %></a></h3>
 
             <% if (post.post.length > 100) { %>
 
@@ -22,12 +22,17 @@
             <% } %>
             <% } %>
         <% }); %>
+
     </div>
+
+    <% if(!visitor) { %>
+
     <div class="col-xs-12">
-        <h2>Private Journal Entries</h2>
+        <h2 class='post-category'>Private Journal Entries</h2>
+        <hr>
         <% postsArray.forEach( (post) => { %>
         <% if(!post.public) { %>
-            <h1><a class='post-heading' href='/posts/<%=post._id%>'><%= post.title %></a></h1>
+            <h3><a class='post-heading' href='/posts/<%=post._id%>'><%= post.title %></a></h3>
 
             <% if (post.post.length > 100) { %>
 
@@ -43,6 +48,7 @@
             <% } %>
         <% }); %>
     </div>
+    <% } %>
 </div>
 
 

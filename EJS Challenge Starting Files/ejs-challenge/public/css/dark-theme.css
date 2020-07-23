@@ -8,8 +8,9 @@ body {
     /* height: 100%; */
     font-family: "Montserrat";
     font-weight: 400;
+    background-color: black;
+    color: #ffdbc5;
 }
-
 p {
     word-wrap: break-word;
     font-size: 16px;
@@ -72,7 +73,6 @@ a.post-heading:hover {
 
 .postcontent {
     margin-top: 35px;
-    white-space: pre-line;
 }
 
 .container-fluid {
@@ -87,8 +87,14 @@ a.post-heading:hover {
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 3px;
+    background-color: #221f3b;
 }
 
+.navbar-default {
+    background-image: none;
+    background-color: #221f3b;
+
+}
 
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
@@ -98,7 +104,14 @@ a.post-heading:hover {
     text-decoration: none;
     color: #1abc9c !important;
     letter-spacing: 5px;
+}
 
+.navbar-header {
+    background-color: #221f3b;
+}
+
+.navbar-collapse {
+    background-color: #221f3b;
 }
 
 .form-check {
@@ -170,7 +183,7 @@ a.post-heading:hover {
 
 #footerlink {
     text-decoration: none;
-    color: #fff;
+    color: #1abc9c;
 }
 
 .footer-padding {
@@ -183,13 +196,13 @@ a.post-heading:hover {
     text-align: center;
 	width: 100%;
 	height: 60px;
-	background-color: #1abc9c;
+	background-color: #221f3b;
 }
 
 .footer p {
 	padding-top: 25px;
 	font-size: 12px;
-    color: #fff;
+    color: #1abc9c;
 }
 
 
