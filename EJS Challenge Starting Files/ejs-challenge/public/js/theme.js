@@ -1,5 +1,5 @@
 // localStorage.setItem('theme', '/css/dark-theme.css');
-
+console.log(localStorage.getItem('theme'));
 document.addEventListener('DOMContentLoaded', () => {
 
     const themeStylesheet = document.getElementById('theme');
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleSwitch = document.getElementById('toggle-switch');
     themeToggle.addEventListener('click', () => {
         // if it's light -> go dark
         if(themeStylesheet.href.includes('styles')){

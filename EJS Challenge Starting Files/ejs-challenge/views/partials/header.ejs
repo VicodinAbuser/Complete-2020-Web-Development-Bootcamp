@@ -35,7 +35,14 @@
           <!-- <li id="home"><a href="/">HOME</a></li> -->
           <li id="about"><a href="/about">ABOUT US</a></li>
           <li id="contact"><a href="/contact">CONTACT US</a></li>
-          <li><a href='#' id="theme-toggle">DARK MODE</a></li>
+          <!-- <li id='toggle-switch'>
+              <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+              </label>
+          </li> -->
+          <li id='theme-toggle-text'><a href='#' id="theme-toggle">DARK MODE</a></li>
+
           <% if (authenticated) { %>
                 <li id='profile'><a href="/profile" role='button'>PROFILE</a></li>
                 <li id='compose'><a href="/compose">POST</a></li>

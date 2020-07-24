@@ -10,14 +10,14 @@
 
 <% postsArray.forEach( (post) => { %>
     <% if(post.public) { %>
-    <h3><a class='post-heading' href='/posts/<%=post._id%>'><%= post.title %></a></h3>
+    <h3 id='post-heading'><a class='post-heading' href='/posts/<%=post._id%>'><%= post.title %></a></h3>
 
     <% if (post.post.length > 100) { %>
 
         <p><%= post.post.substring(0,100) + '...' %>
         <a href='/posts/<%=post._id%>'>Read more</a>
         </p>
-        <a href='/profile/<%=post.authorId%>'><span><%=post.account%></span>
+        <a class='metadata' href='/profile/<%=post.authorId%>'><span><%=post.account%></span>
         <span><%=post.email%></span></a>
          <!-- if(post.likes==0) {
             <form class="like" action="/like" method="post">
@@ -36,7 +36,7 @@
     <% } else { %>
 
         <p><%= post.post %></p>
-        <a href='/profile/<%=post.authorId%>'><span><%=post.account%></span>
+        <a class='metadata' href='/profile/<%=post.authorId%>'><span><%=post.account%></span>
         <span><%=post.email%></span></a>
          <!-- if(!post.liked) {
             <form class="like" action="/like" method="post">

@@ -8,8 +8,8 @@ body {
     /* height: 100%; */
     font-family: "Montserrat";
     font-weight: 400;
-    background-color: black;
-    color: #ffdbc5;
+    background-color: #000;
+    color: #e0dede;/*#ffdbc5;*/
 }
 p {
     word-wrap: break-word;
@@ -74,6 +74,11 @@ a.post-heading:hover {
 .postcontent {
     margin-top: 35px;
 }
+
+#post-heading {
+    margin-top: 40px;
+}
+
 
 .container-fluid {
     padding-top: 70px;
