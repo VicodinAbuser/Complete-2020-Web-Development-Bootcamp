@@ -31,3 +31,23 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 - Simon Game
    
    https://vicodin-abuser-simon-game.netlify.app/
+   
+- Newsletter SignUp
+
+   https://joli-bastille-06564.herokuapp.com/
+   
+- The Daily Journal - A blogging Platform ( EJS Challenge )
+
+   https://shielded-wave-63105.herokuapp.com/
+   
+- To Do List App 
+
+   https://peaceful-basin-15629.herokuapp.com/
+   
+- Emojipedia
+
+   https://h6qb9.csb.app/
+   
+- React Contacts Page
+
+   https://p67dz.csb.app/
