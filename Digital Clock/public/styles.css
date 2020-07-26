@@ -1,0 +1,57 @@
+html {
+  background: rgb(238, 126, 15);
+  background: linear-gradient(
+      180deg,
+      rgba(238, 126, 15, 1) 0%,
+      rgba(243, 248, 242, 1) 33%,
+      rgba(243, 248, 242, 1) 66%,
+      rgba(53, 234, 17, 1) 100%
+    )
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
+  color: #fff;
+  padding: 50px;
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 100px;
+  padding-top: 75px;
+  color: rgb(2, 14, 187);
+}
+
+.container {
+  margin: 15% auto;
+}
+
+button {
+  display: inline;
+  background-color: #6bbe92;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 5px;
+  margin: 10px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+@media (max-width: 900px) {
+  body {
+    margin: 0% auto;
+  }
+  h1 {
+    font-size: 40px;
+    padding-top: 200px;
+  }
+}
