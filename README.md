@@ -9,14 +9,6 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 
    https://shielded-wave-63105.herokuapp.com/
 
-   
-  
-- CSS Personal Site
-   
-   https://vicodin-abuser-personal-site.netlify.app
-  
-
-  
 - Tindog 
    
    https://vicodin-abuser-tindog.netlify.app
@@ -25,10 +17,6 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
    
    https://qij4d.csb.app/
    
-- Drum Kit
-   
-   https://vicodin-abuser-drum-kit.netlify.app
-
 - Simon Game
    
    https://vicodin-abuser-simon-game.netlify.app/
@@ -37,38 +25,57 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 
    https://peaceful-basin-15629.herokuapp.com/
    
+   
+- Drum Kit
+   
+   https://vicodin-abuser-drum-kit.netlify.app
+   
+  
+- CSS Personal Site
+   
+   https://vicodin-abuser-personal-site.netlify.app
+  
+
+   
 #### The smaller ones
 
-- HTML Personal Site 
-   
-   https://vicodin-abuser-first-personal-site.netlify.app
-   
-- Bacon Fan Site
-   
-   https://vicodin-abuser-bacon-fan-site.netlify.app
+- Emojipedia
+
+   https://h6qb9.csb.app/
    
 - Dice Challenge 
    
    https://vicodin-abuser-roll-dice.netlify.app/   
    
+- HTML Personal Site 
+   
+   https://vicodin-abuser-first-personal-site.netlify.app
+
 - Newsletter SignUp
 
    https://joli-bastille-06564.herokuapp.com/
    
-
+- Digital Clock
    
-
-   
-- Emojipedia
-
-   https://h6qb9.csb.app/
+   https://sqk0x.csb.app/
    
 - React Contacts Page
 
    https://p67dz.csb.app/
    
-- Digital Clock
+- Bacon Fan Site
    
-   https://sqk0x.csb.app/
+   https://vicodin-abuser-bacon-fan-site.netlify.app
+   
+
+   
+
+  
+   
+
+   
+
+   
+
    
 
