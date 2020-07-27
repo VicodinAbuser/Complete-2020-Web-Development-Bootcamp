@@ -5,6 +5,9 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 
 #### The Bigger Ones
 
+- The Daily Journal - A blogging Platform ( EJS Challenge )
+
+   https://shielded-wave-63105.herokuapp.com/
 
    
   
@@ -18,7 +21,9 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
    
    https://vicodin-abuser-tindog.netlify.app
 
-
+- Keeper App - A Google Keep clone
+   
+   https://qij4d.csb.app/
    
 - Drum Kit
    
@@ -27,6 +32,10 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 - Simon Game
    
    https://vicodin-abuser-simon-game.netlify.app/
+   
+- To Do List App 
+
+   https://peaceful-basin-15629.herokuapp.com/
    
 #### The smaller ones
 
@@ -46,13 +55,9 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 
    https://joli-bastille-06564.herokuapp.com/
    
-- The Daily Journal - A blogging Platform ( EJS Challenge )
 
-   https://shielded-wave-63105.herokuapp.com/
    
-- To Do List App 
 
-   https://peaceful-basin-15629.herokuapp.com/
    
 - Emojipedia
 
@@ -66,6 +71,4 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
    
    https://sqk0x.csb.app/
    
-- Keeper App - A Google Keep clone
-   
-   https://qij4d.csb.app/
+
