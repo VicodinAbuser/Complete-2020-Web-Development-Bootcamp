@@ -5,26 +5,20 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 
 #### The Bigger Ones
 
-- HTML Personal Site 
-   
-   https://vicodin-abuser-first-personal-site.netlify.app
+
    
   
 - CSS Personal Site
    
    https://vicodin-abuser-personal-site.netlify.app
   
-- Bacon Fan Site
-   
-   https://vicodin-abuser-bacon-fan-site.netlify.app
+
   
 - Tindog 
    
    https://vicodin-abuser-tindog.netlify.app
 
-- Dice Challenge 
-   
-   https://vicodin-abuser-roll-dice.netlify.app/   
+
    
 - Drum Kit
    
@@ -35,6 +29,18 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
    https://vicodin-abuser-simon-game.netlify.app/
    
 #### The smaller ones
+
+- HTML Personal Site 
+   
+   https://vicodin-abuser-first-personal-site.netlify.app
+   
+- Bacon Fan Site
+   
+   https://vicodin-abuser-bacon-fan-site.netlify.app
+   
+- Dice Challenge 
+   
+   https://vicodin-abuser-roll-dice.netlify.app/   
    
 - Newsletter SignUp
 
