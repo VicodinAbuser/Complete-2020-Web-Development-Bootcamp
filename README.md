@@ -3,6 +3,8 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 
 ## Projects
 
+#### The Bigger Ones
+
 - HTML Personal Site 
    
    https://vicodin-abuser-first-personal-site.netlify.app
@@ -31,6 +33,8 @@ Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (Th
 - Simon Game
    
    https://vicodin-abuser-simon-game.netlify.app/
+   
+#### The smaller ones
    
 - Newsletter SignUp
 
