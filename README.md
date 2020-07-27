@@ -1,7 +1,7 @@
 # Complete-2020-Web-Development-Bootcamp
 Contains material from The Complete 2020 Web Developer Bootcamp by Angela Yu (The App Brewery)
 
-## Content
+## Projects
 
 - HTML Personal Site 
    
