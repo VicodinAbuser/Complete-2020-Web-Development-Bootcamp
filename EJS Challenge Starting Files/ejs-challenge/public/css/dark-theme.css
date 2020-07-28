@@ -8,8 +8,11 @@ body {
     /* height: 100%; */
     font-family: "Montserrat";
     font-weight: 400;
-    background-color: #000;
-    color: #e0dede;/*#ffdbc5;*/
+    /* background-color: #000; */
+    color: #ffdbc5;
+    background-color: #000000;
+background-image: url("https://www.transparenttextures.com/patterns/dark-dotted-2.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 p {
     word-wrap: break-word;
@@ -164,6 +167,10 @@ a.post-heading:hover {
     color: #1abc9c;
 }
 
+.fas:hover {
+    color: #337ab7;
+}
+
 /* .btn-social {
     height: 50px;
     font-size: 18px;
@@ -184,6 +191,15 @@ a.post-heading:hover {
 } */
 .social-block {
     margin: 20px auto;
+}
+
+.btn {
+    background-color: #000000;
+/* background-image: url("https://www.transparenttextures.com/patterns/dark-dotted-2.png"); */
+}
+
+.btn:hover {
+    color: #337ab7;
 }
 
 #footerlink {

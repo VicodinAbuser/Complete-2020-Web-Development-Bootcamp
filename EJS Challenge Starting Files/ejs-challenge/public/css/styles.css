@@ -8,6 +8,11 @@ body {
     /* height: 100%; */
     font-family: "Montserrat";
     font-weight: 400;
+    /* background-color: #fafffe; */
+    background-color: #f5fffd;
+background-image: url("https://www.transparenttextures.com/patterns/dark-stripes-light.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! *//* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 p {
@@ -152,6 +157,19 @@ a.post-heading:hover {
 
 .fas {
     color: #1abc9c;
+}
+
+.fas:hover {
+    color: inherit;/*#337ab7;*/
+}
+
+.btn-xs {
+    background-color: #f5fffd;
+    background-image: url("https://www.transparenttextures.com/patterns/dark-stripes-light.png");
+}
+
+.btn:hover {
+    color: #337ab7;
 }
 
 /* .btn-social {
