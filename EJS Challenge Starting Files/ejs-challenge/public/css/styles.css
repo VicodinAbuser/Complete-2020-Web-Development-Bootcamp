@@ -146,6 +146,10 @@ a.post-heading:hover {
   margin-left: 0;
 }
 
+.ck-content .table {
+    width: auto;
+}
+
 .delete {
     margin-top: 80px;
 }

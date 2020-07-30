@@ -21,4 +21,19 @@
     <button type="submit" class="btn btn-primary publish">Publish</button>
 </form>
 
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#post' ) )
+        .catch( error => {
+            console.error( error );
+        } )
+        .builtinPlugins.map( plugin => console.log(plugin.pluginName) );
+
+
+
+
+    const data = editor.getData();
+    console.log(data);
+</script>
+
 <%- include('partials/footer') -%>

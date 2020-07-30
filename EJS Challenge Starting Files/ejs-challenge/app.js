@@ -114,7 +114,7 @@ app.get('/', (req, res) => {
         posts.sort ( (a, b) => {
             return new Date(b.timestamp) - new Date(a.timestamp);
         });
-        console.log(posts);
+        // console.log(posts);
 
         if(req.isAuthenticated()) {
             User.findById(req.user.id, (err, foundUser) => {
@@ -315,10 +315,10 @@ app.post('/delete', (req, res) => {
                             for(let i = 0; i < foundUser.posts.length; i++) {
 
                                 if (JSON.stringify(foundUser.posts[i]['_id']) === JSON.stringify(postId)) {
-                                    console.log(foundUser.posts.length);
+                                    // console.log(foundUser.posts.length);
                                     foundUser.posts.splice(i,1);
                                     foundUser.save();
-                                    console.log(foundUser.posts.length);
+                                    // console.log(foundUser.posts.length);
                                     break;
                                 }
                             }
@@ -334,7 +334,7 @@ app.post('/delete', (req, res) => {
                         res.send("There was an error. Please try again.");
                     } else {
                         if(deletedPost) {
-                            console.log(deletedPost);
+                            // console.log(deletedPost);
                             res.redirect('/profile');
                         }
                     }
@@ -453,7 +453,7 @@ app.post('/compose', (req, res) => {
 
             foundUser.save(() => {
                 res.redirect('/');
-                console.log(foundUser.posts);
+                // console.log(foundUser.posts);
             });
         }
     })
