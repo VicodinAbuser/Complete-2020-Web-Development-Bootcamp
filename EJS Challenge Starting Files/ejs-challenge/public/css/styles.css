@@ -8,11 +8,13 @@ body {
     /* height: 100%; */
     font-family: "Montserrat";
     font-weight: 400;
-    /* background-color: #fafffe; */
-    background-color: #f5fffd;
-background-image: url("https://www.transparenttextures.com/patterns/dark-stripes-light.png");
+    /* background-color: #b2ebf2; */
+    background-color: #ffffff;
+background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! *//* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+background-attachment: fixed;
 }
 
 p {
@@ -36,6 +38,16 @@ hr {
     margin-left: 0;
 }
 
+
+iframe{
+    margin:auto;
+}
+
+img {
+    max-width: 1200px;
+}
+
+
 a:hover {
     text-decoration: none;
 }
@@ -44,8 +56,18 @@ button.publish {
     float: right;
 }
 
+.navbarItems {
+    transition: all 0.5s;
+}
+
+.navbarItems:hover {
+    transform: scale(1.1);
+}
+
 .container.body {
     padding-bottom: 100px;
+    /* background-color: white;
+    background-image: none; */
 }
 
 .main-heading {
@@ -168,12 +190,22 @@ a.post-heading:hover {
 }
 
 .btn-xs {
-    background-color: #f5fffd;
-    background-image: url("https://www.transparenttextures.com/patterns/dark-stripes-light.png");
+    background-color: #ffffff;
+background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
 }
 
 .btn:hover {
     color: #337ab7;
+}
+
+.sign {
+    margin-top: 25px;
+}
+
+.btn-social {
+    margin-top: 0;
+    text-align: center;
+
 }
 
 /* .btn-social {
@@ -223,87 +255,35 @@ a.post-heading:hover {
 }
 
 
-
-
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 20px;
-  margin-top: 15px;
-}
-
-#theme-toggle {
-    padding-left: 0;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 12px;
-  width: 12px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(30px);
-  -ms-transform: translateX(30px);
-  transform: translateX(30px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-
-
-
-
 @media (max-width: 900px) {
+    iframe{
+        width: 300px;
+        height: 215px
+    }
+
+    img {
+        max-width: 300px;
+        max-height: 300px;
+    }
+
     .navbar {
         letter-spacing: 3px;
     }
 
+    hr {
+        border-top: 1px solid #1abc9c;
+        margin-top: 20px;
+        width: 80%;
+        margin-left: 0;
+    }
 
     .navbar-brand a {
         letter-spacing: 2px;
+    }
+
+    #delete {
+        margin-left: 5px;
+        color: red;
+        display: inline-block;
     }
 }

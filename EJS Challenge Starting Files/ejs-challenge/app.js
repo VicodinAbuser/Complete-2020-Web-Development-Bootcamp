@@ -19,7 +19,8 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 const app = express();
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.static("public"));
 
 app.use(session({
@@ -56,7 +57,8 @@ const usersSchema = new mongoose.Schema({
     accountName: String,
     email: String,
     password: String,
-    // googleId: String,
+    googleId: String,
+    secret: String,
     // facebookId: String,
     posts: [postSchema],
     likedPosts: [String]
@@ -80,19 +82,19 @@ passport.deserializeUser((id, done) => {
 });
 
 
-// passport.use(new GoogleStrategy({
-//     clientID: process.env.CLIENT_ID,
-//     clientSecret: process.env.CLIENT_SECRET,
-//     callbackURL: "http://localhost:3000/auth/google/",
-//     // userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
-//   },
-//   function(accessToken, refreshToken, profile, cb) {
-//     console.log(profile);
-//     User.findOrCreate({ googleId: profile.id }, function (err, user) {
-//       return cb(err, user);
-//     });
-//   }
-// ));
+passport.use(new GoogleStrategy({
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/callback",
+    // userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    console.log(profile);
+    User.findOrCreate({ googleId: profile.id, accountName: profile.displayName, username: profile.emails[0]['value'] }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
 //
 // passport.use(new FacebookStrategy({
 //     clientID: process.env.FB_APP_ID,
@@ -132,14 +134,14 @@ app.get('/', (req, res) => {
     })
 });
 
-// app.get('/auth/google',
-//     passport.authenticate('google', { scope: ['profile'] })
-// );
-//
-// app.get('/auth/google/', passport.authenticate('google', {failureRedirect: '/login'}), (req, res) => {
-//     res.redirect('/');
-// });
-//
+app.get('/auth/google',
+    passport.authenticate('google', { scope: ['profile', 'email'] })
+);
+
+app.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/login'}), (req, res) => {
+    res.redirect('/');
+});
+
 // app.get('/auth/facebook',
 //   passport.authenticate('facebook'));
 //
@@ -294,6 +296,7 @@ app.post('/like', (req, res) => {
         });
     }
 })
+
 
 app.post('/delete', (req, res) => {
     const postId = req.body.postId;

@@ -11,7 +11,8 @@ body {
     /* background-color: #000; */
     color: #ffdbc5;
     background-color: #000000;
-background-image: url("https://www.transparenttextures.com/patterns/dark-dotted-2.png");
+    background-image: url("https://www.transparenttextures.com/patterns/dark-dotted-2.png");
+    background-attachment: fixed;
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 p {
@@ -171,6 +172,24 @@ a.post-heading:hover {
     color: #337ab7;
 }
 
+.sign {
+    margin-top: 25px;
+}
+
+.btn-social {
+    margin-top: 0;
+    text-align: center;
+
+}
+
+.navbarItems {
+    transition: all 0.5s;
+}
+
+.navbarItems:hover {
+    transform: scale(1.1);
+}
+
 /* .btn-social {
     height: 50px;
     font-size: 18px;
@@ -193,7 +212,7 @@ a.post-heading:hover {
     margin: 20px auto;
 }
 
-.btn {
+.btn-xs {
     background-color: #000000;
 /* background-image: url("https://www.transparenttextures.com/patterns/dark-dotted-2.png"); */
 }

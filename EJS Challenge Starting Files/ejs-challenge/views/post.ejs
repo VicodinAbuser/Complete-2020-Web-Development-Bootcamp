@@ -6,6 +6,7 @@
 <p class='postcontent' id='contentToTransform'><%-content%></p>
 <% if(!visitor) { %>
 <p style='display:none;'><%=id%></p>
+
 <form class="delete" action="/delete" method="post">
     <button class='btn btn-danger btn-lg' type="submit" name="postId" value='<%=id%>'>Delete Post</button>
     <span id="delete">WARNING! This action can't be undone!</span>
@@ -23,7 +24,7 @@
     </div>
 </div> -->
 <!-- <div class="fb-comments" data-href="http://localhost:3000/posts/" data-numposts="5" data-width=""></div> -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     createYoutubeEmbed = (key) => {
   return '<iframe width="420" height="345" src="https://www.youtube.com/embed/' + key + '" frameborder="0" allowfullscreen></iframe><br/>';
 };
@@ -69,7 +70,7 @@ transformYoutubeLinks = (text) => {
 
 const htmlContent = document.getElementById('contentToTransform');
 htmlContent.innerHTML = transformYoutubeLinks(htmlContent.innerHTML);
-</script>
+</script> -->
 
 
 <%- include('partials/footer') -%>
